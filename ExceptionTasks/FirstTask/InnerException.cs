@@ -8,27 +8,18 @@ namespace FirstTask
     public class InnerException : Exception
     {
         #region Constructors
-
-        /// <summary>
-        /// <inheritdoc cref="Exception.Exception"/>
-        /// </summary>
+        
+        /// <inheritdoc cref="Exception"/>
         public InnerException()
         {
         }
-
-        /// <summary>
-        /// <inheritdoc cref="Exception.Exception(string?)"/>
-        /// </summary>
-        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
+        
+        /// <inheritdoc cref="Exception"/>
         public InnerException(string message) : base(message)
         {
         }
-
-        /// <summary>
-        /// <inheritdoc cref="Exception.Exception(string?, Exception?)"/>
-        /// </summary>
-        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
-        /// <param name="innerException"><inheritdoc cref="Exception.InnerException"/></param>
+        
+        /// <inheritdoc cref="Exception"/>
         public InnerException(string message, Exception innerException) : base(message, innerException)
         {
         }
