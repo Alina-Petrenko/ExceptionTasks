@@ -19,7 +19,7 @@ namespace FirstTask
     /// <summary>
     /// Starts the project
     /// </summary>
-    public class Program
+    class Program
     {
         /// <summary>
         /// Entry point of project

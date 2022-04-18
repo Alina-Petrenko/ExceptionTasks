@@ -25,6 +25,7 @@ namespace SecondTask
             catch (NullReferenceException ex)
             {
                 Console.WriteLine(ex.Message);
+                // TODO: better call using "this."
                 Log(ex.GetType().ToString(), ex.StackTrace);
             }
             catch (ArithmeticException ex)
@@ -121,16 +122,17 @@ namespace SecondTask
         private static void Log(string name, string stackTrace)
         {
             var fileName = "application.log";
+            // TODO: better to save direct in base directory (debug/release folder)
             fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\..\..\..\"), fileName);
 
             var methods = stackTrace.Split('.');
             var list = new List<string>();
             var stringBuilder = new StringBuilder();
-            for (var i = 0; i < methods.Length; i++)
+            foreach (var method in methods)
             {
-                if (methods[i].Contains(')'))
+                if (method.Contains(')'))
                 {
-                    list.Add(methods[i]);
+                    list.Add(method);
                 }
             }
             for (var i = 0; i < list.Count; i++)
