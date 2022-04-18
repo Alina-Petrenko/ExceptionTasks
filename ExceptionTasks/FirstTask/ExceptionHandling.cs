@@ -50,7 +50,11 @@ namespace FirstTask
                 Console.WriteLine(ex.Message);
             }
         }
+        
+        #endregion
 
+        #region Private methods
+        
         /// <summary>
         /// Throws out exception depending on <paramref name="exception"/>
         /// </summary>
@@ -92,9 +96,11 @@ namespace FirstTask
                     }
                 case ExceptionEnum.NoException:
                     {
-                        Console.WriteLine("No error happened.");
+                        Console.WriteLine("Exception is not thrown.");
                         break;
                     }
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(exception), exception, null);
             }
         }
 
