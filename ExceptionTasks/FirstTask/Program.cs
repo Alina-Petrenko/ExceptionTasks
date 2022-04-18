@@ -29,11 +29,13 @@ namespace FirstTask
             var random = new Random();
             var exceptionArray = new ExceptionEnum[random.Next(50, 101)];
 
+            // TODO: var i
             for (int i = 0; i < exceptionArray.Length; i++)
             {
                 var value = random.Next(0, 7);
                 exceptionArray[i] = (ExceptionEnum)value;
             }
+            
             foreach (var item in exceptionArray)
             {
                 ExceptionHandling.ThrowAnException(item);

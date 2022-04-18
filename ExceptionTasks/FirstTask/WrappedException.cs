@@ -11,8 +11,11 @@ namespace FirstTask
         /// <summary>
         /// Sets initial values
         /// </summary>
+        /// TODO: instead of defining summary by yourself, you can use those which used in Exception class
+        /// <inheritdoc cref="Exception"/>
         public WrappedException() : base()
         {
+            // TODO: you could not identify base() constructor. It calls by default.
         }
 
         /// <summary>

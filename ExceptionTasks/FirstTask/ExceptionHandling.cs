@@ -8,18 +8,23 @@ namespace FirstTask
     /// </summary>
     public static class ExceptionHandling
     {
+        // TODO: General comment.
+        // TODO: after #region should be new line, and before #endregion should be new line
         #region Public Methods
         /// <summary>
         /// Throws out exception depending on <paramref name="exception"/>
         /// </summary>
         /// <param name="exception">Type of exception</param>
+        // TODO: separate logic of throwing and handling of message into separate methods
         public static void ThrowAnException(ExceptionEnum exception)
         {
             try
             {
+                // TODO: use enum values in switch
                 var value = Convert.ToInt32(exception);
                 switch (value)
                 {
+                    // TODO: hard to understand what 0 means, without checking enum values
                     case 0:
                         {
                             List<string> list = null;
@@ -49,6 +54,10 @@ namespace FirstTask
                         }
                     case 5:
                         {
+                            throw new WrappedException("Outer message", new InnerException("Inner message"));
+                            
+                            // TODO: why do we need this try/catch?
+                            // TODO: we need to throw WrappedException exception like above
                             try
                             {
                                 throw new InnerException();
@@ -67,6 +76,7 @@ namespace FirstTask
                             }
                             throw new WrappedException();
                         }
+                    // TODO: not all values checked
                     default:
                         {
                             break;
