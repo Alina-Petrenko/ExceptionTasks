@@ -3,34 +3,36 @@
 namespace FirstTask
 {
     /// <summary>
-    /// Represents business exception
+    /// <inheritdoc cref="Exception"/>
     /// </summary>
     public class WrappedException : Exception
     {
         #region Constructors
+
         /// <summary>
-        /// Sets initial values
+        /// <inheritdoc cref="Exception.Exception"/>
         /// </summary>
-        public WrappedException() : base()
+        public WrappedException()
         {
         }
 
         /// <summary>
-        /// Sets initial values
+        ///  <inheritdoc cref="Exception.Exception(string?)"/>
         /// </summary>
-        /// <param name="message">Message</param>
+        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
         public WrappedException(string message) : base(message)
         {
         }
 
         /// <summary>
-        /// Sets initial values
+        /// <inheritdoc cref="Exception.Exception(string?, Exception?)"/>
         /// </summary>
-        /// <param name="message">Message</param>
-        /// <param name="innerException">Inner Exception</param>
+        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
+        /// <param name="innerException"><inheritdoc cref="Exception.InnerException"/></param>
         public WrappedException(string message, InnerException innerException) : base(message, innerException)
         {
         }
+
         #endregion
     }
 }

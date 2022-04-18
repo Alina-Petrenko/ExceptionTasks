@@ -11,7 +11,7 @@ namespace FirstTask
         ArithmeticException,
         InvalidCastException,
         IndexOutOfRangeException,
-        MyException,
+        InnerException,
         WrappedException,
         NoException
     }
@@ -29,14 +29,14 @@ namespace FirstTask
             var random = new Random();
             var exceptionArray = new ExceptionEnum[random.Next(50, 101)];
 
-            for (int i = 0; i < exceptionArray.Length; i++)
+            for (var i = 0; i < exceptionArray.Length; i++)
             {
                 var value = random.Next(0, 7);
                 exceptionArray[i] = (ExceptionEnum)value;
             }
             foreach (var item in exceptionArray)
             {
-                ExceptionHandling.ThrowAnException(item);
+                ExceptionHandling.CatchAnException(item);
             }
         }
     }

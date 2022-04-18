@@ -3,34 +3,36 @@
 namespace FirstTask
 {
     /// <summary>
-    /// Represents business exception
+    /// <inheritdoc cref="Exception"/>
     /// </summary>
     public class InnerException : Exception
     {
         #region Constructors
+
         /// <summary>
-        /// Sets initial values
+        /// <inheritdoc cref="Exception.Exception"/>
         /// </summary>
-        public InnerException() : base()
+        public InnerException()
         {
         }
 
         /// <summary>
-        /// Sets initial values
+        /// <inheritdoc cref="Exception.Exception(string?)"/>
         /// </summary>
-        /// <param name="message">Message</param>
+        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
         public InnerException(string message) : base(message)
         {
         }
 
         /// <summary>
-        /// Sets initial values
+        /// <inheritdoc cref="Exception.Exception(string?, Exception?)"/>
         /// </summary>
-        /// <param name="message">Message</param>
-        /// <param name="innerException">Inner Exception</param>
+        /// <param name="message"><inheritdoc cref="Exception.Message"/></param>
+        /// <param name="innerException"><inheritdoc cref="Exception.InnerException"/></param>
         public InnerException(string message, Exception innerException) : base(message, innerException)
         {
         }
+
         #endregion
     }
 }

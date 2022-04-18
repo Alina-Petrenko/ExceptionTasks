@@ -9,69 +9,16 @@ namespace FirstTask
     public static class ExceptionHandling
     {
         #region Public Methods
+
         /// <summary>
-        /// Throws out exception depending on <paramref name="exception"/>
+        /// Catches exceptions depending on <paramref name="exception"/>
         /// </summary>
         /// <param name="exception">Type of exception</param>
-        public static void ThrowAnException(ExceptionEnum exception)
+        public static void CatchAnException(ExceptionEnum exception)
         {
             try
             {
-                var value = Convert.ToInt32(exception);
-                switch (value)
-                {
-                    case 0:
-                        {
-                            List<string> list = null;
-                            list.Add("1");
-                            break;
-                        }
-                    case 1:
-                        {
-                            Math.Sign(Double.NaN);
-                            break;
-                        }
-                    case 2:
-                        {
-                            IConvertible conv = true;
-                            var ch = conv.ToChar(null);
-                            break;
-                        }
-                    case 3:
-                        {
-                            var array = new int[2];
-                            var item = array[3];
-                            break;
-                        }
-                    case 4:
-                        {
-                            throw new InnerException();
-                        }
-                    case 5:
-                        {
-                            try
-                            {
-                                throw new InnerException();
-                            }
-                            catch (InnerException ex)
-                            {
-                                try
-                                {
-
-                                    throw new WrappedException();
-                                }
-                                catch
-                                {
-                                    throw new WrappedException((new WrappedException()).Message, ex);
-                                }
-                            }
-                            throw new WrappedException();
-                        }
-                    default:
-                        {
-                            break;
-                        }
-                }
+                ThrowAnException(exception);
             }
             catch (NullReferenceException ex)
             {
@@ -103,6 +50,54 @@ namespace FirstTask
                 Console.WriteLine(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Throws out exception depending on <paramref name="exception"/>
+        /// </summary>
+        /// <param name="exception">Type of exception</param>
+        private static void ThrowAnException(ExceptionEnum exception)
+        {
+            switch (exception)
+            {
+                case ExceptionEnum.NullReferenceException:
+                    {
+                        List<string> list = null;
+                        list.Add("1");
+                        break;
+                    }
+                case ExceptionEnum.ArithmeticException:
+                    {
+                        Math.Sign(Double.NaN);
+                        break;
+                    }
+                case ExceptionEnum.InvalidCastException:
+                    {
+                        IConvertible conv = true;
+                        _ = conv.ToChar(null);
+                        break;
+                    }
+                case ExceptionEnum.IndexOutOfRangeException:
+                    {
+                        var array = new int[2];
+                        _ = array[3];
+                        break;
+                    }
+                case ExceptionEnum.InnerException:
+                    {
+                        throw new InnerException();
+                    }
+                case ExceptionEnum.WrappedException:
+                    {
+                        throw new WrappedException(new WrappedException().Message, new InnerException());
+                    }
+                case ExceptionEnum.NoException:
+                    {
+                        Console.WriteLine("No error happened.");
+                        break;
+                    }
+            }
+        }
+
         #endregion
     }
 }
